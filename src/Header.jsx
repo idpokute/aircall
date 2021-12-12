@@ -71,6 +71,15 @@ const NavBlock = styled.div`
     align-items: center;
   }
 `;
+const ActiveBar = styled.span`
+  position: absolute;
+  bottom: 0px;
+  left: 4px;
+  right: 4px;
+  height: 4px;
+  /* width: calc(100% - 10px); */
+  background-color: red;
+`;
 
 const Header = () => {
   const tab = useSelector((state) => state.calls.tab);
@@ -148,8 +157,13 @@ const Header = () => {
       </LogoBlock>
       <div className="curve"></div>
       <NavBlock>
-        <a className={tab === "Inbox" ? "active" : ""} onClick={onInbox}>
+        <a
+          className={tab === "Inbox" ? "active" : ""}
+          style={{ position: "relative" }}
+          onClick={onInbox}
+        >
           Inbox
+          {tab === "Inbox" && <ActiveBar />}
         </a>
         <svg
           fill="currentColor"
@@ -161,8 +175,13 @@ const Header = () => {
         >
           <path d="M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z"></path>
         </svg>
-        <a className={tab === "All calls" ? "active" : ""} onClick={onAllCalls}>
+        <a
+          className={tab === "All calls" ? "active" : ""}
+          style={{ position: "relative" }}
+          onClick={onAllCalls}
+        >
           All calls
+          {tab === "All calls" && <ActiveBar />}
         </a>
         <svg
           fill="currentColor"

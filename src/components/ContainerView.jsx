@@ -9,7 +9,7 @@ const Container = styled.div`
   /* height: 0px;
   padding: 20px; */
   /* overflow-y: auto; */
-  height: calc(100% - 140px);
+  height: calc(100% - 104px);
   background: #eee;
   overflow-y: auto;
 `;
